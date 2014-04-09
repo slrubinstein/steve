@@ -14,6 +14,25 @@ Steps:
 3b. Search through items in list and pull out our target data.
 3c. Write data to new document, adding % as separation character.
 4. Close files.
+
+For reference, Page 3 is in the format:
+
+	2 of 3
+
+	Appearance
+	"UNTITLED PROJECT"_AARON_FAKE
+	13/11/2013 10.42.01
+	FIRST NAME:  AARON
+	LAST NAME:  FAKE
+	ADDRESS:  123 APPLE ROAD
+	EMAIL:  AARON.FAKE@GMAIL.COM
+	BIRTHDATE:  (null)
+	PHONE NUMBER:  201-555-2255
+	TIMESTAMP:  13/11/2013 10.42.01
+	LAT: 41.048428
+	LONG: -74.117190
+	
+	3 of 3
 """
 
 import re
@@ -21,7 +40,7 @@ import re
 f = open('releasestext.txt', 'rU')
 text = f.read()
 
-#Use regex to findall page 3s, which contains contact info we need.
+#Use regex to findall page 3s, which contain contact info we need.
 
 info = re.findall(r'2\sof\s3\s(.*?)3\sof\s3', text, re.DOTALL)
 
